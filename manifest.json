@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Sturdy",
+  "version": "1.0.0",
+  "description": "A canvas extension that helps study for tests and exams by compiling past canvas quizzes into a single doc",
+  "author": "Opemipo Adebayo Peter",
+  "permissions": ["activeTab","storage"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"], 
+      "js": ["quiz.js"]
+    }
+  ],
+  "commands": {
+    "trigger-action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+3",
+        "mac": "Command+Shift+3"
+      },
+      "description": "Download quizSolutions"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "sturdy.html",
+    "default_icon": "sturdy.png"
+  }
+}
