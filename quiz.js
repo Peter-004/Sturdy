@@ -18,13 +18,13 @@ function saveTextFile(filename, content) {
 console.log("Sturdy launch was successful.");
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "trigger-action") {
-    // Perform the action (e.g., modify the page)
+    
     let quest = [];
     let ans = [];
     let txt = document.querySelectorAll(".text");
     let iframe = document.getElementById('preview_frame');//getting iframe tag doesn't work, there's also CORS policy
     let hiddenAns, quizTitle;
-    if(!iframe){//We know that there's no iframe to display quiz summary, unless canvas start advertising...
+    if(!iframe){//We know that there's no iframe to display quiz summary, unless canvas starts advertising...
         hiddenAns = document.querySelector(".alert")?.innerText.match(/\b(Correct answers are hidden|be available)\b/gi);//ans are hidden
         quizTitle = document.getElementById("quiz_title").innerText || "quizsolution";
     }
